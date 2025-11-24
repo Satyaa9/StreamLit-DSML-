@@ -3,11 +3,11 @@ import streamlit as st
 
 st.set_page_config(page_title="Startup Funding Dashboard", layout="wide")
 
-# Load Data
+
 df = pd.read_csv("startup_cleaned.csv")
 
 
-# ---------------- Investor Section ---------------- #
+
 def investor_details(investor):
     st.markdown(f"<h2 style='color:#4CAF50;'>Investor: {investor}</h2>", unsafe_allow_html=True)
 
@@ -17,12 +17,12 @@ def investor_details(investor):
     st.dataframe(data, use_container_width=True)
 
 
-# ---------------- Sidebar ---------------- #
+
 st.sidebar.markdown("<h1 style='color:#FF9800;'>Startup Funding</h1>", unsafe_allow_html=True)
 
 option = st.sidebar.selectbox('📌 Select Section', ["Overall", "StartUp", "Investor"])
 
-# ---------------- Overall ---------------- #
+
 if option == "Overall":
     st.markdown("<h1 style='color:#2196F3;'>📊 Overall Funding Overview</h1>", unsafe_allow_html=True)
 
@@ -57,7 +57,7 @@ if option == "Overall":
     st.dataframe(df.head(10), use_container_width=True)
 
 
-# ---------------- StartUp Section ---------------- #
+
 elif option == "StartUp":
     st.markdown("<h1 style='color:#9C27B0;'>🚀 Startup Details</h1>", unsafe_allow_html=True)
 
@@ -100,7 +100,7 @@ elif option == "StartUp":
     st.dataframe(data, use_container_width=True)
 
 
-# ---------------- Investor Section ---------------- #
+
 else:
     st.markdown("<h1 style='color:#4CAF50;'>💼 Investor Analysis</h1>", unsafe_allow_html=True)
 
